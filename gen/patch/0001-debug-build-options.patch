@@ -1,0 +1,34 @@
+From 7c6d4c6fb294cf7d4d359b8be37235f084f26a33 Mon Sep 17 00:00:00 2001
+From: Matthias Margush <matthias.margush@me.com>
+Date: Sun, 24 May 2020 22:06:02 -0700
+Subject: [PATCH] debug build options
+
+---
+ build.gradle | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/build.gradle b/build.gradle
+index 1ed38fe33..d2456bf51 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -174,12 +174,14 @@ subprojects {
+     options.compilerArgs << "-Xlint:-rawtypes"
+     options.compilerArgs << "-Xlint:-serial"
+     options.compilerArgs << "-Xlint:-try"
+-    options.compilerArgs << "-Werror"
++    options.compilerArgs << "-parameters"
++    options.debug = true
++    options.debugOptions.debugLevel = "source,lines,vars"
+     // --release is the recommended way to select the target release, but it's only supported in Java 9 so we also
+     // set --source and --target via `sourceCompatibility` and `targetCompatibility`. If/when Gradle supports `--release`
+     // natively (https://github.com/gradle/gradle/issues/2510), we should switch to that.
+-    if (JavaVersion.current().isJava9Compatible())
+-      options.compilerArgs << "--release" << minJavaVersion
++    // if (JavaVersion.current().isJava9Compatible())
++    //   options.compilerArgs << "--release" << minJavaVersion
+   }
+ 
+   uploadArchives {
+-- 
+2.21.1 (Apple Git-122.3)
+

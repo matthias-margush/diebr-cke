@@ -1,0 +1,327 @@
+(ns diebrücke.reflect-test
+  (:require [clojure.test :refer [deftest is]]
+            [clojure.reflect]
+            [diebrücke.gen.reflect :as reflect])
+  (:import org.apache.kafka.streams.StreamsBuilder))
+
+(deftest methods-test
+  (is (= '({:name stream,
+            :return-type org.apache.kafka.streams.kstream.KStream,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topics,
+              :type java.util.Collection,
+              :interface? true,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name stream,
+            :return-type org.apache.kafka.streams.kstream.KStream,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topicPattern,
+              :type java.util.regex.Pattern,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name stream,
+            :return-type org.apache.kafka.streams.kstream.KStream,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topicPattern,
+              :type java.util.regex.Pattern,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name stream,
+            :return-type org.apache.kafka.streams.kstream.KStream,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name stream,
+            :return-type org.apache.kafka.streams.kstream.KStream,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name stream,
+            :return-type org.apache.kafka.streams.kstream.KStream,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topics,
+              :type java.util.Collection,
+              :interface? true,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name table,
+            :return-type org.apache.kafka.streams.kstream.KTable,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name materialized,
+              :type org.apache.kafka.streams.kstream.Materialized,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name table,
+            :return-type org.apache.kafka.streams.kstream.KTable,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name table,
+            :return-type org.apache.kafka.streams.kstream.KTable,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name table,
+            :return-type org.apache.kafka.streams.kstream.KTable,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name materialized,
+              :type org.apache.kafka.streams.kstream.Materialized,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name build,
+            :return-type org.apache.kafka.streams.Topology,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name props,
+              :type java.util.Properties,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name build,
+            :return-type org.apache.kafka.streams.Topology,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters (),
+            :exception-types nil,
+            :constructor? nil}
+           {:name globalTable,
+            :return-type org.apache.kafka.streams.kstream.GlobalKTable,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name globalTable,
+            :return-type org.apache.kafka.streams.kstream.GlobalKTable,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name materialized,
+              :type org.apache.kafka.streams.kstream.Materialized,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name globalTable,
+            :return-type org.apache.kafka.streams.kstream.GlobalKTable,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name materialized,
+              :type org.apache.kafka.streams.kstream.Materialized,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name globalTable,
+            :return-type org.apache.kafka.streams.kstream.GlobalKTable,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name addStateStore,
+            :return-type org.apache.kafka.streams.StreamsBuilder,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name builder,
+              :type org.apache.kafka.streams.state.StoreBuilder,
+              :interface? true,
+              :lambda nil,
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name addGlobalStore,
+            :return-type org.apache.kafka.streams.StreamsBuilder,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name storeBuilder,
+              :type org.apache.kafka.streams.state.StoreBuilder,
+              :interface? true,
+              :lambda nil,
+              :array? false}
+             {:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name sourceName,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name processorName,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name stateUpdateSupplier,
+              :type org.apache.kafka.streams.processor.ProcessorSupplier,
+              :interface? true,
+              :lambda
+              {:name get,
+               :return-type org.apache.kafka.streams.processor.Processor,
+               :declaring-class
+               org.apache.kafka.streams.processor.ProcessorSupplier,
+               :parameters (),
+               :exception-types nil,
+               :constructor? nil},
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name addGlobalStore,
+            :return-type org.apache.kafka.streams.StreamsBuilder,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters
+            ({:name storeBuilder,
+              :type org.apache.kafka.streams.state.StoreBuilder,
+              :interface? true,
+              :lambda nil,
+              :array? false}
+             {:name topic,
+              :type java.lang.String,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name consumed,
+              :type org.apache.kafka.streams.kstream.Consumed,
+              :interface? false,
+              :lambda nil,
+              :array? false}
+             {:name stateUpdateSupplier,
+              :type org.apache.kafka.streams.processor.ProcessorSupplier,
+              :interface? true,
+              :lambda
+              {:name get,
+               :return-type org.apache.kafka.streams.processor.Processor,
+               :declaring-class
+               org.apache.kafka.streams.processor.ProcessorSupplier,
+               :parameters (),
+               :exception-types nil,
+               :constructor? nil},
+              :array? false}),
+            :exception-types nil,
+            :constructor? nil}
+           {:name org.apache.kafka.streams.StreamsBuilder,
+            :return-type nil,
+            :declaring-class org.apache.kafka.streams.StreamsBuilder,
+            :parameters (),
+            :exception-types nil,
+            :constructor? :constructor})
+        (reflect/methods [org.apache.kafka.streams.StreamsBuilder]))))

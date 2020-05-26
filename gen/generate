@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+version=2.5.0
+if [ ! -d kafka ]
+then
+  git clone git@github.com:apache/kafka.git && (
+    cd kafka
+    git checkout "$version"
+    git apply ../patch/0001-debug-build-options.patch
+    ./gradlew jar
+  )
+fi
+
+mkdir -p "../$version/diebrücke"
+clojure -m diebrücke.main "../$version"

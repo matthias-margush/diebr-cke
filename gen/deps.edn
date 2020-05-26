@@ -1,0 +1,8 @@
+{:paths
+ [ "src" "test"
+  "kafka/clients/build/classes/java/main"
+  "kafka/tools/build/classes/java/main"
+  "kafka/streams/build/classes/java/main"
+  "kafka/core/build/classes/scala/main"]
+ :deps {camel-snake-kebab {:mvn/version "0.4.1"}}}
+
